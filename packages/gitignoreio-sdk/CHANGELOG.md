@@ -1,5 +1,11 @@
 # gitignoreio-sdk
 
+## 0.1.2
+
+### Patch Changes
+
+- 631ccd3: Install missing vitest dependency used to calculate coverage
+
 ## 0.1.1
 
 ### Patch Changes
