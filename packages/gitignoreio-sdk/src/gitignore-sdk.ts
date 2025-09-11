@@ -1,11 +1,13 @@
-import type { GitIgnoreInput, GitIgnoreResult, HttpClient } from './types.js';
+import { errAsync } from 'neverthrow';
 
-import { DefaultHttpClient } from './http-client.js';
+import type { GitIgnoreInput, GitIgnoreIoSDK, HttpClient } from './domain';
+
+import { DefaultHttpClient } from './adapters/fetch/client';
 
 /**
  * GitIgnore SDK for generating .gitignore files
  */
-export class GitIgnoreSDK {
+export class GitIgnoreSDK implements GitIgnoreIoSDK {
   private readonly baseUrl: string;
   private readonly httpClient: HttpClient;
 
@@ -19,21 +21,15 @@ export class GitIgnoreSDK {
    * @param technologies - Array of technology names (e.g., ['node', 'python', 'react'])
    * @returns Promise with the generated gitignore content
    */
-  async generate(technologies: GitIgnoreInput): Promise<GitIgnoreResult> {
+  generate(technologies: GitIgnoreInput) {
     if (technologies.length === 0) {
-      throw new Error('You must provide at least something to ignore');
+      return errAsync(
+        new Error('You must provide at least something to ignore'),
+      );
     }
 
     const techString = technologies.join(',');
     const url = new URL(`${this.baseUrl}/${encodeURIComponent(techString)}`);
-
-    try {
-      const content = await this.httpClient.get(url);
-      return { content };
-    } catch (error) {
-      throw new Error(
-        `Failed to generate gitignore: ${error instanceof Error ? error.message : String(error)}`,
-      );
-    }
+    return this.httpClient.get(url).map((content) => ({ content }));
   }
 }

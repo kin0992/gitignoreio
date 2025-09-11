@@ -45,5 +45,8 @@
     "directory": "packages/gitignoreio-sdk"
   },
   "author": "Marco Comi",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "neverthrow": "^8.2.0"
+  }
 }
