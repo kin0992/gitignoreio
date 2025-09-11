@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
-import { GitIgnoreSDK } from '../gitignore-sdk';
-import { makeMockHttpClient } from './data';
+import { GitIgnoreSDK } from '../gitignore-sdk.js';
+import { makeMockHttpClient } from './data.js';
 
 describe('GitIgnoreSDK', () => {
   describe('generate', () => {
