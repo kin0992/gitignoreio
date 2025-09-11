@@ -2,6 +2,7 @@
   "name": "gitignoreio-sdk",
   "version": "0.0.0",
   "description": "SDK for gitignore.io API",
+  "type": "module",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
@@ -10,11 +11,12 @@
     "README.md"
   ],
   "scripts": {
-    "build": "echo \"Build script to be implemented\"",
-    "test": "echo \"Running tests for gitignoreio-sdk\"",
-    "lint": "echo \"Lint script to be implemented\"",
-    "lint:check": "echo \"Running lint check for gitignoreio-sdk\"",
-    "typecheck": "echo \"Running typecheck for gitignoreio-sdk\""
+    "build": "tsup",
+    "test": "vitest run",
+    "test:coverage": "vitest --coverage",
+    "lint": "eslint src --fix",
+    "lint:check": "eslint src",
+    "typecheck": "tsc --noEmit"
   },
   "keywords": [
     "gitignore",
@@ -28,5 +30,14 @@
   },
   "publishConfig": {
     "access": "public"
+  },
+  "devDependencies": {
+    "gitignoreio-eslint-config": "workspace:*",
+    "@types/node": "^22.0.0",
+    "eslint": "catalog:lint",
+    "tsup": "^8.0.0",
+    "typescript": "catalog:core",
+    "vitest": "^3.2.4",
+    "vitest-mock-extended": "^3.1.0"
   }
 }
