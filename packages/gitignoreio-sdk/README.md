@@ -1,6 +1,6 @@
 # gitignoreio-sdk
 
-Official SDK for gitignore.io API
+SDK for gitignore.io API
 
 ## Installation
 

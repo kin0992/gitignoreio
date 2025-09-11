@@ -1,7 +1,7 @@
 {
   "name": "gitignoreio-sdk",
   "version": "0.0.0",
-  "description": "Official SDK for gitignore.io API",
+  "description": "SDK for gitignore.io API",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
   "types": "dist/index.d.ts",
@@ -19,10 +19,10 @@
     "sdk",
     "api"
   ],
-  "author": "",
+  "author": "Marco Comi",
   "license": "ISC",
   "engines": {
-    "node": ">=22.19.0"
+    "node": ">=22"
   },
   "publishConfig": {
     "access": "public"
