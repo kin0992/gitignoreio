@@ -8,7 +8,7 @@
     "pnpm": ">=10"
   },
   "scripts": {
-    "version-packages": "changeset version",
+    "version": "changeset version",
     "release": "changeset publish",
     "code-review": "turbo run code-review"
   },
