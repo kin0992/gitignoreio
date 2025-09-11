@@ -13,7 +13,7 @@ export class DefaultHttpClient implements HttpClient {
       }
       return ResultAsync.fromPromise(
         response.text(),
-        () => new Error('Failed to read response text'),
+        () => new Error(`Failed to read response text from ${url} (status: ${response.status})`),
       );
     });
   }
