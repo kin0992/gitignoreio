@@ -1,6 +1,6 @@
 # gitignoreio-sdk
 
-Official SDK for gitignore.io API - Generate .gitignore files programmatically.
+A comprehensive gitignore.io SDK and tools ecosystem.
 
 ## Installation
 
