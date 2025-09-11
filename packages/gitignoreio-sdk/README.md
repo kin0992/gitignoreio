@@ -24,7 +24,12 @@ const sdk = new GitIgnoreSDK();
 
 // Generate gitignore content
 const result = await sdk.generate(['typescript', 'vscode']);
-console.log(result.content);
+if (result.isErr()) {
+    // Handle the error
+} else {
+    // Do whatever you want with the content
+    console.log(result.value.content);
+}
 ```
 
 ## Common Technology Names

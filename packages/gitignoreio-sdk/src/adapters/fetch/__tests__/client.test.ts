@@ -47,7 +47,13 @@ describe('DefaultHttpClient', () => {
 
       const result = await client.get(testUrl);
 
-      expect(result).toStrictEqual(err(new Error('Failed to fetch data')));
+      expect(result).toStrictEqual(
+        err(
+          new Error(
+            'Failed to fetch data from https://api.example.com/test: Network error',
+          ),
+        ),
+      );
       expect(mockFetch).toHaveBeenCalledWith(testUrl);
     });
 
@@ -61,7 +67,11 @@ describe('DefaultHttpClient', () => {
       const result = await client.get(testUrl);
 
       expect(result).toStrictEqual(
-        err(new Error('Failed to read response text')),
+        err(
+          new Error(
+            'Failed to read response text from https://api.example.com/test (status: 200)',
+          ),
+        ),
       );
       expect(mockFetch).toHaveBeenCalledWith(testUrl);
       expect(mockResponse.text).toHaveBeenCalledTimes(1);
