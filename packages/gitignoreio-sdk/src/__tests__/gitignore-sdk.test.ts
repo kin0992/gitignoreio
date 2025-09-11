@@ -1,3 +1,4 @@
+import { err, ok, okAsync } from 'neverthrow';
 import { describe, expect, it } from 'vitest';
 
 import { GitIgnoreSDK } from '../gitignore-sdk.js';
@@ -5,11 +6,11 @@ import { makeMockHttpClient } from './data.js';
 
 describe('GitIgnoreSDK', () => {
   describe('generate', () => {
-    it('should generate gitignore content for multiple technologies', async () => {
+    it('should return the .gitignore content', async () => {
       const mockContent = '# Node.js\nnode_modules/\nnpm-debug.log';
       const mockHttpClient = makeMockHttpClient();
+      mockHttpClient.get.mockReturnValueOnce(okAsync(mockContent));
       const sdk = new GitIgnoreSDK(mockHttpClient);
-      mockHttpClient.get.mockResolvedValueOnce(mockContent);
 
       const result = await sdk.generate(['node', 'python']);
 
@@ -18,24 +19,15 @@ describe('GitIgnoreSDK', () => {
           'https://www.toptal.com/developers/gitignore/api/node%2Cpython',
         ),
       );
-      expect(result).toStrictEqual({ content: mockContent });
+      expect(result).toStrictEqual(ok({ content: mockContent }));
     });
 
-    it('should throw error for empty technologies array', async () => {
+    it('should return an error when input is not valid', async () => {
       const mockHttpClient = makeMockHttpClient();
       const sdk = new GitIgnoreSDK(mockHttpClient);
-      await expect(sdk.generate([])).rejects.toThrow(
-        'You must provide at least something to ignore',
-      );
-    });
-
-    it('should handle HTTP client errors', async () => {
-      const mockHttpClient = makeMockHttpClient();
-      const sdk = new GitIgnoreSDK(mockHttpClient);
-      mockHttpClient.get.mockRejectedValueOnce(new Error('Network error'));
-
-      await expect(sdk.generate(['node'])).rejects.toThrow(
-        'Failed to generate gitignore: Network error',
+      const result = await sdk.generate([]);
+      expect(result).toStrictEqual(
+        err(new Error('You must provide at least something to ignore')),
       );
     });
   });
