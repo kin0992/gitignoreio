@@ -5,13 +5,20 @@
       "dependsOn": ["^build"]
     },
     "typecheck": {
-      "dependsOn": ["^typecheck"]
+      "inputs": ["src/**/*.ts", "tsconfig.json"]
     },
     "lint:check": {
-      "dependsOn": ["^lint:check"]
+      "inputs": ["src/**/*.ts"]
     },
     "test": {
-      "dependsOn": ["^test"]
+      "dependsOn": ["^test"],
+      "inputs": ["src/**/__tests__/**/*.test.ts"],
+      "outputLogs": "errors-only"
+    },
+    "test:coverage": {
+      "inputs": ["src/**/__tests__/**/*.test.ts"],
+      "outputs": ["coverage"],
+      "outputLogs": "errors-only"
     },
     "code-review": {
       "dependsOn": ["lint:check", "typecheck", "test"]
