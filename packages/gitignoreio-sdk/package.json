@@ -1,0 +1,30 @@
+{
+  "name": "gitignoreio-sdk",
+  "version": "0.0.0",
+  "description": "Official SDK for gitignore.io API",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "echo \"Build script to be implemented\"",
+    "test": "echo \"Test script to be implemented\"",
+    "lint": "echo \"Lint script to be implemented\""
+  },
+  "keywords": [
+    "gitignore",
+    "sdk",
+    "api"
+  ],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=22.19.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

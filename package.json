@@ -1,0 +1,30 @@
+{
+  "name": "gitignoreio",
+  "version": "1.0.0",
+  "description": "A comprehensive gitignore.io SDK and tools",
+  "private": true,
+  "packageManager": "pnpm@9.12.0",
+  "engines": {
+    "node": ">=22.19.0",
+    "pnpm": ">=9.0.0"
+  },
+  "scripts": {
+    "build": "pnpm --recursive run build",
+    "test": "pnpm --recursive run test",
+    "lint": "pnpm --recursive run lint",
+    "changeset": "changeset",
+    "version-packages": "changeset version",
+    "release": "changeset publish"
+  },
+  "keywords": [
+    "gitignore",
+    "sdk",
+    "development",
+    "tools"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@changesets/cli": "^2.29.7"
+  }
+}
