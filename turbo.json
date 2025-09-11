@@ -6,6 +6,15 @@
     },
     "typecheck": {
       "dependsOn": ["^typecheck"]
+    },
+    "lint:check": {
+      "dependsOn": ["^lint:check"]
+    },
+    "test": {
+      "dependsOn": ["^test"]
+    },
+    "code-review": {
+      "dependsOn": ["lint:check", "typecheck", "test"]
     }
   }
 }
