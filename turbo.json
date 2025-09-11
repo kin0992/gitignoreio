@@ -5,7 +5,7 @@
       "dependsOn": ["^build"]
     },
     "typecheck": {
-      "inputs": ["src/**/*.ts"]
+      "inputs": ["src/**/*.ts", "tsconfig.json"]
     },
     "lint:check": {
       "inputs": ["src/**/*.ts"]
