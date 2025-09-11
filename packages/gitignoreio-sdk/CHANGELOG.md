@@ -1,5 +1,11 @@
 # gitignoreio-sdk
 
+## 0.1.1
+
+### Patch Changes
+
+- 76b8da8: Add missing repository information in package.json, required to attest provenance
+
 ## 0.1.0
 
 ### Minor Changes
