@@ -30,9 +30,9 @@
     "access": "public"
   },
   "devDependencies": {
-    "gitignoreio-eslint-config": "workspace:*",
     "@types/node": "^22.0.0",
     "eslint": "catalog:lint",
+    "gitignoreio-eslint-config": "workspace:*",
     "tsup": "^8.0.0",
     "typescript": "catalog:core",
     "vitest": "^3.2.4",
@@ -44,5 +44,8 @@
     "directory": "packages/gitignoreio-sdk"
   },
   "author": "Marco Comi",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "neverthrow": "^8.2.0"
+  }
 }
