@@ -1,5 +1,6 @@
+import type { GitIgnoreInput, GitIgnoreResult, HttpClient } from './types.js';
+
 import { DefaultHttpClient } from './http-client.js';
-import { GitIgnoreInput, GitIgnoreResult, HttpClient } from './types.js';
 
 /**
  * GitIgnore SDK for generating .gitignore files

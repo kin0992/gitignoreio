@@ -1,4 +1,4 @@
-import { HttpClient } from './types.js';
+import type { HttpClient } from './types.js';
 
 /**
  * Default HTTP client implementation using Node.js fetch
