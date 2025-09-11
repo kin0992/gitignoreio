@@ -11,8 +11,10 @@
   ],
   "scripts": {
     "build": "echo \"Build script to be implemented\"",
-    "test": "echo \"Test script to be implemented\"",
-    "lint": "echo \"Lint script to be implemented\""
+    "test": "echo \"Running tests for gitignoreio-sdk\"",
+    "lint": "echo \"Lint script to be implemented\"",
+    "lint:check": "echo \"Running lint check for gitignoreio-sdk\"",
+    "typecheck": "echo \"Running typecheck for gitignoreio-sdk\""
   },
   "keywords": [
     "gitignore",

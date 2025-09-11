@@ -85,3 +85,6 @@ temp/
 # Temporary folders
 .tmp
 .cache
+
+# Turbo
+.turbo

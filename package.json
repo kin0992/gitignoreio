@@ -9,7 +9,8 @@
   },
   "scripts": {
     "version-packages": "changeset version",
-    "release": "changeset publish"
+    "release": "changeset publish",
+    "code-review": "turbo run code-review"
   },
   "devDependencies": {
     "@changesets/cli": "^2.29.7",
