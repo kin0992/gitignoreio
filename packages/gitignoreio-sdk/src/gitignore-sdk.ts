@@ -1,19 +1,16 @@
-import { HttpClient, GitIgnoreConfig, GitIgnoreInput, GitIgnoreResult } from './types.js';
 import { DefaultHttpClient } from './http-client.js';
+import { GitIgnoreInput, GitIgnoreResult, HttpClient } from './types.js';
 
 /**
  * GitIgnore SDK for generating .gitignore files
  */
 export class GitIgnoreSDK {
-  private readonly httpClient: HttpClient;
   private readonly baseUrl: string;
+  private readonly httpClient: HttpClient;
 
-  constructor(
-    config: GitIgnoreConfig = {},
-    httpClient?: HttpClient
-  ) {
+  constructor(httpClient?: HttpClient) {
     this.httpClient = httpClient ?? new DefaultHttpClient();
-    this.baseUrl = config.baseUrl ?? 'https://www.toptal.com/developers/gitignore/api';
+    this.baseUrl = 'https://www.toptal.com/developers/gitignore/api';
   }
 
   /**
@@ -22,24 +19,20 @@ export class GitIgnoreSDK {
    * @returns Promise with the generated gitignore content
    */
   async generate(technologies: GitIgnoreInput): Promise<GitIgnoreResult> {
-    if (!technologies || technologies.length === 0) {
-      throw new Error('Technologies array cannot be empty');
+    if (technologies.length === 0) {
+      throw new Error('You must provide at least something to ignore');
     }
 
-    // Validate input - ensure all items are strings
-    if (!technologies.every(tech => typeof tech === 'string')) {
-      throw new Error('All technologies must be strings');
-    }
-
-    // Join technologies with comma and create URL
     const techString = technologies.join(',');
-    const url = `${this.baseUrl}/${encodeURIComponent(techString)}`;
+    const url = new URL(`${this.baseUrl}/${encodeURIComponent(techString)}`);
 
     try {
       const content = await this.httpClient.get(url);
       return { content };
     } catch (error) {
-      throw new Error(`Failed to generate gitignore: ${error instanceof Error ? error.message : String(error)}`);
+      throw new Error(
+        `Failed to generate gitignore: ${error instanceof Error ? error.message : String(error)}`,
+      );
     }
   }
 }
