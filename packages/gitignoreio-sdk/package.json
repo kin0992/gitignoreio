@@ -23,8 +23,6 @@
     "sdk",
     "api"
   ],
-  "author": "Marco Comi",
-  "license": "ISC",
   "engines": {
     "node": ">=22"
   },
@@ -44,5 +42,7 @@
     "type": "git",
     "url": "git+https://github.com/kin0992/gitignoreio.git",
     "directory": "packages/gitignoreio-sdk"
-  }
+  },
+  "author": "Marco Comi",
+  "license": "ISC"
 }
