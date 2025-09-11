@@ -4,7 +4,7 @@ A comprehensive gitignore.io SDK and tools ecosystem.
 
 ## Packages
 
-- **[gitignoreio-sdk](./packages/gitignoreio-sdk)** - Official SDK for gitignore.io API
+- **[gitignoreio-sdk](./packages/gitignoreio-sdk)** - SDK for gitignore.io API
 
 ## Development
 
