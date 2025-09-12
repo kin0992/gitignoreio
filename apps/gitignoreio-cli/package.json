@@ -1,0 +1,52 @@
+{
+  "name": "gitignoreio-cli",
+  "version": "0.1.0",
+  "description": "CLI for gitignore.io API",
+  "type": "module",
+  "main": "dist/index.js",
+  "bin": {
+    "gitignoreio": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "start": "node dist/index.js",
+    "test": "vitest run",
+    "test:coverage": "vitest --coverage",
+    "lint": "eslint src --fix",
+    "lint:check": "eslint src",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "gitignore",
+    "cli",
+    "api"
+  ],
+  "engines": {
+    "node": ">=22"
+  },
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "@vitest/coverage-v8": "^3.2.4",
+    "eslint": "catalog:lint",
+    "gitignoreio-eslint-config": "workspace:*",
+    "tsup": "^8.0.0",
+    "typescript": "catalog:core",
+    "vitest": "^3.2.4"
+  },
+  "dependencies": {
+    "commander": "^12.0.0",
+    "gitignoreio-sdk": "workspace:*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kin0992/gitignoreio.git",
+    "directory": "apps/gitignoreio-cli"
+  },
+  "author": "Marco Comi",
+  "license": "ISC"
+}
