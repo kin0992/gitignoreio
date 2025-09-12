@@ -37,6 +37,7 @@
     "vitest": "catalog:core"
   },
   "dependencies": {
+    "@inquirer/prompts": "^7.8.4",
     "commander": "^14.0.1",
     "gitignoreio-sdk": "workspace:*"
   },
