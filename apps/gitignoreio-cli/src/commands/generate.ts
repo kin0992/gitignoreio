@@ -3,6 +3,17 @@ import { Command } from 'commander';
 import { promises as fs } from 'fs';
 import { join } from 'path';
 
+export function filterTemplates(
+  searchTerm: string,
+  templates: readonly string[],
+): readonly string[] {
+  return searchTerm.trim()
+    ? templates.filter((template) =>
+        template.toLowerCase().includes(searchTerm.toLowerCase()),
+      )
+    : templates;
+}
+
 export const generateCommand = new Command('generate')
   .description('Interactively generate .gitignore file from templates')
   .action(async () => {
@@ -15,9 +26,33 @@ export const generateCommand = new Command('generate')
         'gitignoreio-sdk/dist/index.js'
       );
 
+      // Ask for search term to filter templates
+      const searchTerm = await input({
+        default: '',
+        message: 'Search templates (press Enter to see all):',
+      });
+
+      // Filter templates based on search term
+      const filteredElements = filterTemplates(searchTerm, GITIGNORE_ELEMENTS);
+
+      if (filteredElements.length === 0) {
+        console.log(`❌ No templates found matching "${searchTerm}"`);
+        process.exit(1);
+      }
+
+      console.log('');
+      if (searchTerm.trim()) {
+        console.log(
+          `🔍 Found ${filteredElements.length} template${filteredElements.length === 1 ? '' : 's'} matching "${searchTerm}"`,
+        );
+      } else {
+        console.log(`📋 Showing all ${filteredElements.length} templates`);
+      }
+      console.log('');
+
       // Show template selection
       const selectedTemplates = await checkbox({
-        choices: GITIGNORE_ELEMENTS.map((template) => ({
+        choices: filteredElements.map((template) => ({
           name: template,
           value: template,
         })),
