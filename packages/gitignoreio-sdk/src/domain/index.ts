@@ -1,9 +1,12 @@
 import type { ResultAsync } from 'neverthrow';
 
+import type { GitIgnoreElement } from './gitignore-element';
+
 /**
  * Input for generating gitignore content.
+ * A non-empty array of technology names.
  */
-export type GitIgnoreInput = string[];
+export type GitIgnoreInput = [GitIgnoreElement, ...GitIgnoreElement[]];
 
 export interface GitIgnoreIoSDK {
   generate(technologies: GitIgnoreInput): ResultAsync<GitIgnoreResult, Error>;

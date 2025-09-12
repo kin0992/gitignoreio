@@ -32,14 +32,4 @@ if (result.isErr()) {
 }
 ```
 
-## Common Technology Names
-
-Popular technology names you can use:
-
-- **Languages:** `node`, `python`, `java`, `go`, `rust`, `csharp`, `php`  
-- **Frameworks:** `react`, `angular`, `vue`, `django`, `flask`, `spring`
-- **Tools:** `vscode`, `intellij`, `xcode`, `vim`, `emacs`
-- **Platforms:** `windows`, `macos`, `linux`
-- **Databases:** `mongodb`, `mysql`, `postgresql`, `redis`
-
-For a complete list, visit [gitignore.io](https://www.toptal.com/developers/gitignore/).
+For a complete list of available templates, see https://www.toptal.com/developers/gitignore/api/list or visit https://www.toptal.com/developers/gitignore/.
