@@ -7,6 +7,9 @@ cleanupUnusedCatalogs: true
 catalogs:
   core:
     typescript: ^5.9.2
+    vitest: ^3.2.4
+    '@vitest/coverage-v8': ^3.2.4
+    '@types/node': ^22.0.0
   lint:
     '@eslint/js': ^9.35.0
     eslint: ^9.35.0

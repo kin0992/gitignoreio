@@ -1,20 +1,18 @@
 {
   "name": "gitignoreio-cli",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "description": "CLI for gitignore.io API",
   "type": "module",
-  "main": "dist/index.js",
+  "main": "bin/index.js",
   "bin": {
-    "gitignoreio": "dist/index.js"
+    "gitignoreio": "bin/index.js"
   },
   "files": [
-    "dist",
+    "bin",
     "README.md"
   ],
   "scripts": {
     "build": "tsup",
-    "dev": "tsup --watch",
-    "start": "node dist/index.js",
     "test": "vitest run",
     "test:coverage": "vitest --coverage",
     "lint": "eslint src --fix",
@@ -30,16 +28,16 @@
     "node": ">=22"
   },
   "devDependencies": {
-    "@types/node": "^22.0.0",
-    "@vitest/coverage-v8": "^3.2.4",
+    "@types/node": "catalog:core",
+    "@vitest/coverage-v8": "catalog:core",
     "eslint": "catalog:lint",
     "gitignoreio-eslint-config": "workspace:*",
     "tsup": "^8.0.0",
     "typescript": "catalog:core",
-    "vitest": "^3.2.4"
+    "vitest": "catalog:core"
   },
   "dependencies": {
-    "commander": "^12.0.0",
+    "commander": "^14.0.1",
     "gitignoreio-sdk": "workspace:*"
   },
   "repository": {

@@ -7,36 +7,17 @@ export const listCommand = new Command('list')
       console.log('Available gitignore templates:');
       console.log('');
 
-      // Common templates - in a real implementation, this would come from the API
-      const commonTemplates = [
-        'node',
-        'python',
-        'java',
-        'react',
-        'angular',
-        'vue',
-        'rust',
-        'go',
-        'dotnet',
-        'macos',
-        'windows',
-        'linux',
-        'visualstudiocode',
-        'intellij',
-        'eclipse',
-        'xcode',
-        'gradle',
-        'maven',
-        'docker',
-        'terraform',
-      ].sort();
+      // Load elements from the SDK at runtime to avoid requiring a build step in dependent package during tests
+      const { GITIGNORE_ELEMENTS } = await import(
+        'gitignoreio-sdk/dist/index.js'
+      );
 
-      commonTemplates.forEach((template) => {
+      GITIGNORE_ELEMENTS.forEach((template) => {
         console.log(`  ${template}`);
       });
 
       console.log('');
-      console.log(`Total: ${commonTemplates.length} templates`);
+      console.log(`Total: ${GITIGNORE_ELEMENTS.length} templates`);
       console.log('');
       console.log('Usage: gitignoreio generate <template1> [template2] ...');
     } catch (error) {

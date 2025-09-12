@@ -23,23 +23,3 @@ This command displays all available gitignore templates that you can use.
 ```bash
 gitignoreio generate node python
 ```
-
-## Development
-
-### Build
-
-```bash
-pnpm build
-```
-
-### Test
-
-```bash
-pnpm test
-```
-
-### Lint
-
-```bash
-pnpm lint
-```
