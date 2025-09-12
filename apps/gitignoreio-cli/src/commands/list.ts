@@ -8,9 +8,7 @@ export const listCommand = new Command('list')
       console.log('');
 
       // Load elements from the SDK at runtime to avoid requiring a build step in dependent package during tests
-      const { GITIGNORE_ELEMENTS } = await import(
-        'gitignoreio-sdk/dist/index.js'
-      );
+      const { GITIGNORE_ELEMENTS } = await import('gitignoreio-sdk');
 
       GITIGNORE_ELEMENTS.forEach((template) => {
         console.log(`  ${template}`);
