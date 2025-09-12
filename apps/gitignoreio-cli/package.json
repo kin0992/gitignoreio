@@ -1,13 +1,14 @@
 {
-  "name": "gitignoreio-sdk",
-  "version": "0.2.0",
-  "description": "SDK for gitignore.io API",
+  "name": "gitignoreio-cli",
+  "version": "0.0.0",
+  "description": "CLI for gitignore.io API",
   "type": "module",
-  "main": "dist/index.js",
-  "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
+  "main": "bin/index.js",
+  "bin": {
+    "gitignoreio": "bin/index.js"
+  },
   "files": [
-    "dist",
+    "bin",
     "README.md"
   ],
   "scripts": {
@@ -20,14 +21,11 @@
   },
   "keywords": [
     "gitignore",
-    "sdk",
+    "cli",
     "api"
   ],
   "engines": {
     "node": ">=22"
-  },
-  "publishConfig": {
-    "access": "public"
   },
   "devDependencies": {
     "@types/node": "catalog:core",
@@ -36,17 +34,17 @@
     "gitignoreio-eslint-config": "workspace:*",
     "tsup": "^8.0.0",
     "typescript": "catalog:core",
-    "vitest": "catalog:core",
-    "vitest-mock-extended": "^3.1.0"
+    "vitest": "catalog:core"
+  },
+  "dependencies": {
+    "commander": "^14.0.1",
+    "gitignoreio-sdk": "workspace:*"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kin0992/gitignoreio.git",
-    "directory": "packages/gitignoreio-sdk"
+    "directory": "apps/gitignoreio-cli"
   },
   "author": "Marco Comi",
-  "license": "ISC",
-  "dependencies": {
-    "neverthrow": "^8.2.0"
-  }
+  "license": "ISC"
 }
