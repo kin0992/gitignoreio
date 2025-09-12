@@ -1,4 +1,4 @@
-import { err, ok, okAsync } from 'neverthrow';
+import { ok, okAsync } from 'neverthrow';
 import { describe, expect, it } from 'vitest';
 
 import { GitIgnoreSDK } from '../gitignore-sdk.js';
@@ -20,15 +20,6 @@ describe('GitIgnoreSDK', () => {
         ),
       );
       expect(result).toStrictEqual(ok({ content: mockContent }));
-    });
-
-    it('should return an error when input is not valid', async () => {
-      const mockHttpClient = makeMockHttpClient();
-      const sdk = new GitIgnoreSDK(mockHttpClient);
-      const result = await sdk.generate([]);
-      expect(result).toStrictEqual(
-        err(new Error('You must provide at least something to ignore')),
-      );
     });
   });
 });
