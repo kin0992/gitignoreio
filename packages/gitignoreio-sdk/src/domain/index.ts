@@ -1,12 +1,12 @@
 import type { Technologies } from './technology';
 
-export interface GitIgnoreIoSDK {
-  generate(technologies: Technologies): Promise<GitIgnoreResult>;
-}
-
 /**
  * Result of gitignore generation.
  */
-export interface GitIgnoreResult {
+export interface GitIgnoreContent {
   content: string;
+}
+
+export interface GitIgnoreIoSDK {
+  generate(technologies: Technologies): Promise<GitIgnoreContent>;
 }
