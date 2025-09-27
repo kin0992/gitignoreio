@@ -43,4 +43,18 @@ export class GitIgnoreSDK implements GitIgnoreIoSDK {
         },
       );
   }
+
+  async listTechnologies() {
+    const url = new URL(`${this.baseUrl}/list`);
+    const result = await this.httpClient
+      .get(url)
+      .map((res) => res.split('\n').flatMap((s) => s.split(',')))
+      .match(
+        (list) => list,
+        () => {
+          throw new Error('There was an error fetching data from gitignore.io');
+        },
+      );
+    return result as unknown as Technologies[];
+  }
 }

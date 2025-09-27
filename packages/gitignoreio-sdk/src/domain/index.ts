@@ -9,4 +9,5 @@ export interface GitIgnoreContent {
 
 export interface GitIgnoreIoSDK {
   generate(technologies: Technologies): Promise<GitIgnoreContent>;
+  listTechnologies(): Promise<Technologies[]>;
 }
