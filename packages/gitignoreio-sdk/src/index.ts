@@ -1,1 +1,1 @@
-export { GitIgnoreSDK } from './gitignore-sdk.js';
+export { GitIgnoreSDK } from './adapters/sdk';
