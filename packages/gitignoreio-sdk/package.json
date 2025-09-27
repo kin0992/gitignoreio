@@ -29,6 +29,9 @@
   "publishConfig": {
     "access": "public"
   },
+  "dependencies": {
+    "neverthrow": "^8.2.0"
+  },
   "devDependencies": {
     "@types/node": "^22.0.0",
     "@vitest/coverage-v8": "^3.2.4",
@@ -44,9 +47,9 @@
     "url": "git+https://github.com/kin0992/gitignoreio.git",
     "directory": "packages/gitignoreio-sdk"
   },
+  "bugs": {
+    "url": "https://github.com/kin0992/gitignoreio/issues"
+  },
   "author": "Marco Comi",
-  "license": "ISC",
-  "dependencies": {
-    "neverthrow": "^8.2.0"
-  }
+  "license": "ISC"
 }

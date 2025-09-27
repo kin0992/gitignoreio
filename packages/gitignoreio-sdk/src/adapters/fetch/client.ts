@@ -1,6 +1,6 @@
 import { errAsync, ResultAsync } from 'neverthrow';
 
-import type { HttpClient } from '../../domain';
+import type { HttpClient } from '../../domain/http-client';
 
 export class DefaultHttpClient implements HttpClient {
   get(url: URL) {
