@@ -1,4 +1,10 @@
-export type GitIgnoreElement =
+/**
+ * Input for generating gitignore content.
+ * A non-empty array of technology names.
+ */
+export type Technologies = [Technology, ...Technology[]];
+
+type Technology =
   | '1c-bitrix'
   | '1c'
   | 'a-frame'
