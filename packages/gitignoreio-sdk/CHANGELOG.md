@@ -1,5 +1,23 @@
 # gitignoreio-sdk
 
+## 0.3.0
+
+### Minor Changes
+
+- 9e5e5b2: Change the `generate` return type to a Promise.
+  With this change the user of the SDK do not have to know or use `neverthrow`.
+  It is enough to properly handle the Promise instead.
+
+  > [!NOTE]
+  > Even though this would be a major update since the contract has changed,
+  > I decided to bump a minor instead, following the [SemVer specification](https://semver.org)
+  > which allows to change the contract when the major is under `1`.
+
+- 5a448cc: Enforce type of generate function
+
+  Now it does not accept an empty array as input, which would lead to an invalid request to the API.
+  Moreover, the input array values are now strictly typed to match the available templates.
+
 ## 0.2.0
 
 ### Minor Changes
