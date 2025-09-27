@@ -33,3 +33,9 @@ jobs:
 
       - name: Run Code Review
         run: pnpm run code-review
+      
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v5
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: kin0992/gitignoreio
